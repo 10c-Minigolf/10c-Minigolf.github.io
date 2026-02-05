@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
 <body>
 
-Projekt Logo
+
 Tokyo MiniGolf 10C
 Über uns Bahnen Galerie Scoreboard Kontakt
 
