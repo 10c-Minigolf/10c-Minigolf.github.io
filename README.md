@@ -6,7 +6,7 @@
     <title>Tokyo Neon Schwarzlicht Minigolf – Klasse 10C</title>
 
     <!-- CSS einbinden -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="10c-minigolf.css">
 </head>
 
 <body>
