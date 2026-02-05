@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Tokyo Neon Schwarzlicht Minigolf – Klasse 10C</title>
-    <link rel="stylesheet" href="10c-minigolf.css">
+    <link rel="stylesheet" href="minigolf.css">
 </head>
 
 <body>
