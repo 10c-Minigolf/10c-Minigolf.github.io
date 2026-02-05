@@ -16,9 +16,17 @@ body {
     background: var(--dark-bg);
     color: white;
     font-family: var(--font-main);
+    display: flex;
+    justify-content: center;
 }
 
-/* GLITCH TEXT GLOW */
+/* GitHub Pages Breiten-Fix */
+.page-wrapper {
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Glitch Glow */
 h1, h2, h3 {
     text-shadow:
         0 0 8px var(--neon-pink),
@@ -27,8 +35,7 @@ h1, h2, h3 {
     letter-spacing: 2px;
 }
 
-/* HEADER -------------------------------------- */
-
+/* Header */
 .header {
     background: rgba(0,0,0,0.4);
     backdrop-filter: blur(6px);
@@ -49,14 +56,11 @@ h1, h2, h3 {
     to   { text-shadow: 0 0 25px var(--neon-blue); }
 }
 
-/* NAV */
-
 .nav a {
     margin: 0 15px;
     color: var(--neon-blue);
     text-decoration: none;
     font-weight: bold;
-    transition: 0.3s;
 }
 
 .nav a:hover {
@@ -64,15 +68,18 @@ h1, h2, h3 {
     text-shadow: 0 0 10px var(--neon-pink);
 }
 
-/* HERO SECTION ------------------------------- */
-
+/* Hero */
 .hero {
     text-align: center;
     padding: 120px 20px;
+    min-height: 80vh;
     background: radial-gradient(circle at center,
         rgba(255,0,200,0.3),
         rgba(0,0,0,0.9)
     );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero h2 {
@@ -80,7 +87,7 @@ h1, h2, h3 {
     color: var(--neon-pink);
 }
 
-.hero .kanji {
+.kanji {
     font-size: 7rem;
     margin-top: 20px;
     color: var(--neon-blue);
@@ -88,22 +95,14 @@ h1, h2, h3 {
         0 0 20px var(--neon-blue),
         0 0 40px var(--neon-yellow),
         0 0 60px var(--neon-purple);
-    animation: flicker 3s infinite;
 }
 
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
-}
-
-/* SECTIONS ----------------------------------- */
-
+/* Sections */
 .section {
-    padding: 70px 10%;
+    padding: 80px clamp(20px, 6vw, 120px);
 }
 
-/* COURSE GRID -------------------------------- */
-
+/* Courses */
 .course-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -116,36 +115,9 @@ h1, h2, h3 {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 0 25px var(--neon-purple);
-    transition: 0.3s;
 }
 
-.course:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px var(--neon-pink);
-}
-
-/* GALLERY ------------------------------------ */
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.img-placeholder {
-    background: rgba(255,255,255,0.1);
-    border: 2px dashed var(--neon-blue);
-    color: var(--neon-blue);
-    padding: 60px 0;
-    text-align: center;
-    border-radius: 10px;
-    text-shadow:
-        0 0 10px var(--neon-blue),
-        0 0 20px var(--neon-purple);
-}
-
-/* ⭐ SCOREBOARD ⭐ ---------------------------------- */
-
+/* Scoreboard */
 .scoreboard-container {
     background: rgba(10,0,30,0.7);
     padding: 30px;
@@ -158,37 +130,20 @@ h1, h2, h3 {
     width: 100%;
     border-collapse: collapse;
     color: var(--neon-yellow);
-    text-shadow: 0 0 8px var(--neon-blue);
-    font-size: 1.2rem;
 }
 
-.scoreboard-table th {
-    background: rgba(0,0,0,0.8);
-    border-bottom: 2px solid var(--neon-pink);
-    padding: 12px;
-    font-size: 1.3rem;
-    color: var(--neon-pink);
-    text-shadow: 0 0 10px var(--neon-pink);
-}
-
+.scoreboard-table th,
 .scoreboard-table td {
     padding: 12px;
     border-bottom: 1px solid rgba(255,255,255,0.2);
-    background: rgba(0,0,0,0.3);
-}
-
-.scoreboard-table tr:hover td {
-    background: rgba(255,0,200,0.15);
-    box-shadow: 0 0 20px var(--neon-purple);
 }
 
 [contenteditable="true"]:focus {
-    background: rgba(0, 255, 255, 0.15);
     outline: 2px solid var(--neon-blue);
-    box-shadow: 0 0 15px var(--neon-blue);
+    background: rgba(0,255,255,0.15);
 }
 
-/* Neon Buttons */
+/* Buttons */
 .neon-btn {
     margin-top: 20px;
     margin-right: 10px;
@@ -196,17 +151,8 @@ h1, h2, h3 {
     background: black;
     border: 2px solid var(--neon-blue);
     color: var(--neon-blue);
-    font-size: 1rem;
     cursor: pointer;
     border-radius: 8px;
-    text-shadow: 0 0 10px var(--neon-blue);
-    transition: 0.3s;
-}
-
-.neon-btn:hover {
-    background: var(--neon-blue);
-    color: black;
-    box-shadow: 0 0 15px var(--neon-blue);
 }
 
 .neon-btn.danger {
@@ -214,43 +160,21 @@ h1, h2, h3 {
     color: var(--neon-pink);
 }
 
-.neon-btn.danger:hover {
-    background: var(--neon-pink);
-    color: black;
-    box-shadow: 0 0 15px var(--neon-pink);
-}
-/* GROßES NEON LOGO -------------------------------------------------- */
-
-.big-logo-section {
-    width: 100%;
-    padding: 80px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(
-        180deg,
-        rgba(0,0,0,0.2),
-        rgba(10,0,40,0.8)
-    );
-    border-bottom: 2px solid var(--neon-purple);
-    box-shadow: 0 0 35px var(--neon-purple);
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-/* Rahmen für Glow-Effekt */
-.logo-frame {
-    padding: 25px;
-    border: 3px solid var(--neon-blue);
-    border-radius: 20px;
-    box-shadow:
-        0 0 20px var(--neon-blue),
-        0 0 35px var(--neon-pink),
-        0 0 55px var(--neon-purple);
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(5px);
-    transition: 0.4s ease;
+.img-placeholder {
+    background: rgba(255,255,255,0.1);
+    border: 2px dashed var(--neon-blue);
+    text-align: center;
+    padding: 60px 0;
 }
-/* FOOTER ------------------------------------- */
 
+/* Footer */
 .footer {
     text-align: center;
     padding: 20px;
