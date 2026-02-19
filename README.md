@@ -8,7 +8,7 @@
 </head>
 <section class="big-logo-section">
     <div class="logo-frame">
-        <img src="minigolf 2.png" alt="Projekt Logo" class="big-logo">
+        <img src="minigolf2.png" alt="Projekt Logo" class="big-logo">
     </div>
 </section>
 
