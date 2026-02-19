@@ -18,15 +18,6 @@ body {
     font-family: var(--font-main);
 }
 
-/* GLITCH TEXT GLOW */
-h1, h2, h3 {
-    text-shadow:
-        0 0 8px var(--neon-pink),
-        0 0 15px var(--neon-blue),
-        0 0 25px var(--neon-purple);
-    letter-spacing: 2px;
-}
-
 /* HEADER -------------------------------------- */
 
 .header {
@@ -38,15 +29,26 @@ h1, h2, h3 {
     box-shadow: 0 0 20px var(--neon-purple);
 }
 
-.logo {
-    font-size: 1.5rem;
-    color: var(--neon-pink);
-    animation: pulse 1.5s infinite alternate;
+.logo-img {
+    height: 70px;
+    filter:
+        drop-shadow(0 0 10px var(--neon-pink))
+        drop-shadow(0 0 20px var(--neon-blue))
+        drop-shadow(0 0 35px var(--neon-purple));
+    animation: pulseLogo 2s infinite alternate;
 }
 
-@keyframes pulse {
-    from { text-shadow: 0 0 10px var(--neon-pink); }
-    to   { text-shadow: 0 0 25px var(--neon-blue); }
+@keyframes pulseLogo {
+    from {
+        filter:
+        drop-shadow(0 0 10px var(--neon-pink))
+        drop-shadow(0 0 20px var(--neon-blue));
+    }
+    to {
+        filter:
+        drop-shadow(0 0 25px var(--neon-pink))
+        drop-shadow(0 0 40px var(--neon-blue));
+    }
 }
 
 /* NAV */
@@ -64,7 +66,7 @@ h1, h2, h3 {
     text-shadow: 0 0 10px var(--neon-pink);
 }
 
-/* HERO SECTION ------------------------------- */
+/* HERO SECTION */
 
 .hero {
     text-align: center;
@@ -96,13 +98,13 @@ h1, h2, h3 {
     50% { opacity: 0.6; }
 }
 
-/* SECTIONS ----------------------------------- */
+/* SECTIONS */
 
 .section {
     padding: 70px 10%;
 }
 
-/* COURSE GRID -------------------------------- */
+/* COURSE GRID */
 
 .course-grid {
     display: grid;
@@ -124,7 +126,7 @@ h1, h2, h3 {
     box-shadow: 0 0 40px var(--neon-pink);
 }
 
-/* GALLERY ------------------------------------ */
+/* GALLERY */
 
 .gallery-grid {
     display: grid;
@@ -139,36 +141,34 @@ h1, h2, h3 {
     padding: 60px 0;
     text-align: center;
     border-radius: 10px;
-    text-shadow:
-        0 0 10px var(--neon-blue),
-        0 0 20px var(--neon-purple);
 }
 
-/* ⭐ SCOREBOARD ⭐ ---------------------------------- */
+/* SCOREBOARD */
 
 .scoreboard-container {
-    background: rgba(10,0,30,0.7);
+    background: rgba(5, 5, 20, 0.85);
     padding: 30px;
     border-radius: 15px;
     border: 2px solid var(--neon-blue);
     box-shadow: 0 0 25px var(--neon-blue);
+    max-height: 420px;
+    overflow-y: auto;
 }
 
 .scoreboard-table {
     width: 100%;
     border-collapse: collapse;
     color: var(--neon-yellow);
-    text-shadow: 0 0 8px var(--neon-blue);
     font-size: 1.2rem;
 }
 
 .scoreboard-table th {
-    background: rgba(0,0,0,0.8);
+    position: sticky;
+    top: 0;
+    background: rgba(0,0,0,0.85);
     border-bottom: 2px solid var(--neon-pink);
     padding: 12px;
-    font-size: 1.3rem;
     color: var(--neon-pink);
-    text-shadow: 0 0 10px var(--neon-pink);
 }
 
 .scoreboard-table td {
@@ -179,47 +179,9 @@ h1, h2, h3 {
 
 .scoreboard-table tr:hover td {
     background: rgba(255,0,200,0.15);
-    box-shadow: 0 0 20px var(--neon-purple);
 }
 
-[contenteditable="true"]:focus {
-    background: rgba(0, 255, 255, 0.15);
-    outline: 2px solid var(--neon-blue);
-    box-shadow: 0 0 15px var(--neon-blue);
-}
-
-/* Neon Buttons */
-.neon-btn {
-    margin-top: 20px;
-    margin-right: 10px;
-    padding: 10px 20px;
-    background: black;
-    border: 2px solid var(--neon-blue);
-    color: var(--neon-blue);
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 8px;
-    text-shadow: 0 0 10px var(--neon-blue);
-    transition: 0.3s;
-}
-
-.neon-btn:hover {
-    background: var(--neon-blue);
-    color: black;
-    box-shadow: 0 0 15px var(--neon-blue);
-}
-
-.neon-btn.danger {
-    border-color: var(--neon-pink);
-    color: var(--neon-pink);
-}
-
-.neon-btn.danger:hover {
-    background: var(--neon-pink);
-    color: black;
-    box-shadow: 0 0 15px var(--neon-pink);
-}
-/* GROßES NEON LOGO -------------------------------------------------- */
+/* BIG LOGO */
 
 .big-logo-section {
     width: 100%;
@@ -236,20 +198,16 @@ h1, h2, h3 {
     box-shadow: 0 0 35px var(--neon-purple);
 }
 
-/* Rahmen für Glow-Effekt */
-.logo-frame {
-    padding: 25px;
-    border: 3px solid var(--neon-blue);
-    border-radius: 20px;
-    box-shadow:
-        0 0 20px var(--neon-blue),
-        0 0 35px var(--neon-pink),
-        0 0 55px var(--neon-purple);
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(5px);
-    transition: 0.4s ease;
+.big-logo-img {
+    max-width: 400px;
+    width: 80%;
+    filter:
+        drop-shadow(0 0 25px var(--neon-blue))
+        drop-shadow(0 0 45px var(--neon-pink))
+        drop-shadow(0 0 65px var(--neon-purple));
 }
-/* FOOTER ------------------------------------- */
+
+/* FOOTER */
 
 .footer {
     text-align: center;
