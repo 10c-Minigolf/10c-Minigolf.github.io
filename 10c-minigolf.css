@@ -29,8 +29,9 @@ body {
     box-shadow: 0 0 20px var(--neon-purple);
 }
 
+/* LOGO KLEINER GEMACHT (ca. -1/3) */
 .logo-img {
-    height: 70px;
+    height: 45px; /* vorher 70px */
     filter:
         drop-shadow(0 0 10px var(--neon-pink))
         drop-shadow(0 0 20px var(--neon-blue))
@@ -198,8 +199,9 @@ body {
     box-shadow: 0 0 35px var(--neon-purple);
 }
 
+/* BIG LOGO KLEINER GEMACHT (ca. -1/3) */
 .big-logo-img {
-    max-width: 400px;
+    max-width: 260px; /* vorher 400px */
     width: 80%;
     filter:
         drop-shadow(0 0 25px var(--neon-blue))
