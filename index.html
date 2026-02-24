@@ -7,13 +7,16 @@
     <title>Tokyo Neon Schwarzlicht Minigolf – Klasse 10C</title>
     <link rel="stylesheet" href="10c-minigolf.css" />
 </head>
-<section class="big-logo-section">
-    <div class="logo-frame">
-        <img src="minigolf2.png" alt="Projekt Logo" class="big-logo">
-    </div>
-</section>
 
 <body>
+
+    <!-- BIG LOGO (jetzt korrekt im Body) -->
+    <section class="big-logo-section">
+        <div class="logo-frame">
+            <img src="minigolf2.png" alt="Projekt Logo" class="big-logo-img">
+        </div>
+    </section>
+
     <header class="header">
         <h1 class="logo">Tokyo MiniGolf 10C</h1>
         <nav class="nav">
@@ -94,34 +97,6 @@
                         <td contenteditable="true">0</td>
                         <td contenteditable="true">0</td>
                     </tr>
-                    <tr>
-                        <td contenteditable="true">Spieler 2</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                    </tr>
-                     <tr>
-                        <td contenteditable="true">Spieler 3</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                    </tr>
-                     <tr>
-                        <td contenteditable="true">Spieler 4</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                        <td contenteditable="true">0</td>
-                    </tr>
-
                 </tbody>
             </table>
 
@@ -151,13 +126,15 @@
         <p>© 2025/26 – Klasse 10C </p>
     </footer>
 
-    <!-- JavaScript für editierbares Scoreboard -->
+    <!-- JavaScript -->
     <script>
-        // Neue Zeile hinzufügen
+        // Neue Zeile hinzufügen (JETZT MIT 5 RUNDEN)
         document.getElementById("addRowBtn").onclick = () => {
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td contenteditable="true">Neuer Spieler</td>
+                <td contenteditable="true">0</td>
+                <td contenteditable="true">0</td>
                 <td contenteditable="true">0</td>
                 <td contenteditable="true">0</td>
                 <td contenteditable="true">0</td>
