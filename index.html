@@ -25,10 +25,40 @@
 <header class="header">
     <h1 class="logo">Tokyo MiniGolf 10C</h1>
     <nav class="nav">
+        <a href="#about">Über uns</a>
+        <a href="#courses">Bahnen</a>
+        <a href="#gallery">Galerie</a>
         <a href="#scoreboard">Scoreboard</a>
+        <a href="#contact">Kontakt</a>
     </nav>
 </header>
 
+<section class="hero">
+    <h2>Tokyo – Altes trifft Neon</h2>
+    <p>Eine Schwarzlicht-MiniGolfbahn von der Klasse 10C</p>
+    <div class="kanji">東京</div>
+</section>
+
+<section id="about" class="section">
+    <h2>Über das Projekt</h2>
+    <p>
+        Wir, die Klasse <strong>10C</strong>, bauen eine eigene Schwarzlicht-Minigolfbahn zum Thema 
+        <strong>„Tokyo“</strong>.  
+        Neon, Cyberpunk, alte Tempel, moderne Stadt – alles vereint in einem leuchtenden Erlebnis.
+    </p>
+</section>
+
+<section id="courses" class="section">
+    <h2>Unsere Bahnen</h2>
+    <div class="course-grid">
+        <div class="course"><h3>❖ Name 1</h3><p>Beschreibung 1.</p></div>
+        <div class="course"><h3>❖ Name 2</h3><p>Beschreibung 2.</p></div>
+        <div class="course"><h3>❖ Name 3</h3><p>Beschreibung 3.</p></div>
+        <div class="course"><h3>❖ Name 4</h3><p>Beschreibung 4.</p></div>
+    </div>
+</section>
+
+<!-- ⭐ SCOREBOARD ⭐ -->
 <section id="scoreboard" class="section">
     <h2>Scoreboard</h2>
 
@@ -45,13 +75,28 @@
                     <th>R5</th>
                 </tr>
             </thead>
-
             <tbody id="scoreBody"></tbody>
         </table>
 
         <button id="addRowBtn" class="neon-btn">➕ Spieler hinzufügen</button>
         <button id="resetScoreBtn" class="neon-btn danger">✖ Zurücksetzen</button>
     </div>
+</section>
+
+<section id="gallery" class="section">
+    <h2>Galerie</h2>
+    <div class="gallery-grid">
+        <div class="img-placeholder">Bild 1</div>
+        <div class="img-placeholder">Bild 2</div>
+        <div class="img-placeholder">Bild 3</div>
+        <div class="img-placeholder">Bild 4</div>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <h2>Kontakt</h2>
+    <p>Bei Fragen zum Projekt oder zur Präsentation:</p>
+    <p><strong>Klasse 10C – Schulprojekt Tokyo Minigolf</strong></p>
 </section>
 
 <footer class="footer">
@@ -61,17 +106,6 @@
 <script>
 const scoreBody = document.getElementById("scoreBody");
 
-// 4 Standard-Spieler
-function createDefaultPlayers() {
-    scoreBody.innerHTML = `
-        ${createRowHTML("Spieler 1")}
-        ${createRowHTML("Spieler 2")}
-        ${createRowHTML("Spieler 3")}
-        ${createRowHTML("Spieler 4")}
-    `;
-}
-
-// HTML für eine Zeile
 function createRowHTML(name) {
     return `
         <tr>
@@ -86,7 +120,15 @@ function createRowHTML(name) {
     `;
 }
 
-// Punkte berechnen
+function createDefaultPlayers() {
+    scoreBody.innerHTML = `
+        ${createRowHTML("Spieler 1")}
+        ${createRowHTML("Spieler 2")}
+        ${createRowHTML("Spieler 3")}
+        ${createRowHTML("Spieler 4")}
+    `;
+}
+
 function calculateRow(row) {
     const rounds = row.querySelectorAll(".round");
     let sum = 0;
@@ -99,7 +141,6 @@ function calculateRow(row) {
     row.querySelector(".total").innerText = sum;
 }
 
-// Sortieren
 function sortTable() {
     const rows = Array.from(scoreBody.querySelectorAll("tr"));
 
@@ -113,22 +154,16 @@ function sortTable() {
     highlightWinner();
 }
 
-// Gewinner markieren
 function highlightWinner() {
     const rows = scoreBody.querySelectorAll("tr");
     rows.forEach(row => row.classList.remove("winner"));
-
-    if (rows.length > 0) {
-        rows[0].classList.add("winner");
-    }
+    if (rows.length > 0) rows[0].classList.add("winner");
 }
 
-// Speichern
 function saveScoreboard() {
     localStorage.setItem("scoreboard", scoreBody.innerHTML);
 }
 
-// Live-Reaktion
 document.addEventListener("input", function(e) {
     if (e.target.classList.contains("round")) {
         const row = e.target.closest("tr");
@@ -138,13 +173,11 @@ document.addEventListener("input", function(e) {
     saveScoreboard();
 });
 
-// Neuer Spieler
 document.getElementById("addRowBtn").onclick = () => {
     scoreBody.insertAdjacentHTML("beforeend", createRowHTML("Neuer Spieler"));
     saveScoreboard();
 };
 
-// Reset
 document.getElementById("resetScoreBtn").onclick = () => {
     if (confirm("Scoreboard wirklich zurücksetzen?")) {
         localStorage.removeItem("scoreboard");
@@ -153,7 +186,6 @@ document.getElementById("resetScoreBtn").onclick = () => {
     }
 };
 
-// Beim Laden
 window.onload = () => {
     const saved = localStorage.getItem("scoreboard");
 
