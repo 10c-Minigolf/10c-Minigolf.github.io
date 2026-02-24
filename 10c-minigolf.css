@@ -29,9 +29,9 @@ body {
     box-shadow: 0 0 20px var(--neon-purple);
 }
 
-/* LOGO KLEINER GEMACHT (ca. -1/3) */
+/* LOGO WEITER VERKLEINERT */
 .logo-img {
-    height: 45px; /* vorher 70px */
+    height: 30px; /* vorher 45px */
     filter:
         drop-shadow(0 0 10px var(--neon-pink))
         drop-shadow(0 0 20px var(--neon-blue))
@@ -199,10 +199,10 @@ body {
     box-shadow: 0 0 35px var(--neon-purple);
 }
 
-/* BIG LOGO KLEINER GEMACHT (ca. -1/3) */
+/* BIG LOGO WEITER VERKLEINERT */
 .big-logo-img {
-    max-width: 260px; /* vorher 400px */
-    width: 80%;
+    max-width: 180px; /* vorher 260px */
+    width: 70%;
     filter:
         drop-shadow(0 0 25px var(--neon-blue))
         drop-shadow(0 0 45px var(--neon-pink))
