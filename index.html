@@ -43,8 +43,7 @@
     <h2>Über das Projekt</h2>
     <p>
         Wir, die Klasse <strong>10C</strong>, bauen eine eigene Schwarzlicht-Minigolfbahn zum Thema 
-        <strong>„Tokyo“</strong>.  
-        Neon, Cyberpunk, alte Tempel, moderne Stadt – alles vereint in einem leuchtenden Erlebnis.
+        <strong>„Tokyo“</strong>.
     </p>
 </section>
 
@@ -58,7 +57,6 @@
     </div>
 </section>
 
-<!-- ⭐ SCOREBOARD ⭐ -->
 <section id="scoreboard" class="section">
     <h2>Scoreboard</h2>
 
@@ -79,6 +77,7 @@
         </table>
 
         <button id="addRowBtn" class="neon-btn">➕ Spieler hinzufügen</button>
+        <button id="updateBtn" class="neon-btn">🔄 Update</button>
         <button id="resetScoreBtn" class="neon-btn danger">✖ Zurücksetzen</button>
     </div>
 </section>
@@ -95,7 +94,6 @@
 
 <section id="contact" class="section">
     <h2>Kontakt</h2>
-    <p>Bei Fragen zum Projekt oder zur Präsentation:</p>
     <p><strong>Klasse 10C – Schulprojekt Tokyo Minigolf</strong></p>
 </section>
 
@@ -106,6 +104,7 @@
 <script>
 const scoreBody = document.getElementById("scoreBody");
 
+// Zeile erstellen
 function createRowHTML(name) {
     return `
         <tr>
@@ -120,6 +119,7 @@ function createRowHTML(name) {
     `;
 }
 
+// 4 Standard-Spieler
 function createDefaultPlayers() {
     scoreBody.innerHTML = `
         ${createRowHTML("Spieler 1")}
@@ -129,18 +129,31 @@ function createDefaultPlayers() {
     `;
 }
 
-function calculateRow(row) {
-    const rounds = row.querySelectorAll(".round");
-    let sum = 0;
+// Nur Zahlen erlauben
+document.addEventListener("input", function(e) {
+    if (e.target.classList.contains("round")) {
+        e.target.innerText = e.target.innerText.replace(/[^0-9]/g, '');
+    }
+});
 
-    rounds.forEach(cell => {
-        const value = parseInt(cell.innerText);
-        if (!isNaN(value)) sum += value;
+// Punkte berechnen
+function calculateAll() {
+    const rows = scoreBody.querySelectorAll("tr");
+
+    rows.forEach(row => {
+        const rounds = row.querySelectorAll(".round");
+        let sum = 0;
+
+        rounds.forEach(cell => {
+            const value = parseInt(cell.innerText);
+            if (!isNaN(value)) sum += value;
+        });
+
+        row.querySelector(".total").innerText = sum;
     });
-
-    row.querySelector(".total").innerText = sum;
 }
 
+// Sortieren
 function sortTable() {
     const rows = Array.from(scoreBody.querySelectorAll("tr"));
 
@@ -151,41 +164,42 @@ function sortTable() {
     });
 
     rows.forEach(row => scoreBody.appendChild(row));
-    highlightWinner();
 }
 
+// Gewinner markieren
 function highlightWinner() {
     const rows = scoreBody.querySelectorAll("tr");
     rows.forEach(row => row.classList.remove("winner"));
     if (rows.length > 0) rows[0].classList.add("winner");
 }
 
+// Speichern
 function saveScoreboard() {
     localStorage.setItem("scoreboard", scoreBody.innerHTML);
 }
 
-document.addEventListener("input", function(e) {
-    if (e.target.classList.contains("round")) {
-        const row = e.target.closest("tr");
-        calculateRow(row);
-        sortTable();
-    }
-    saveScoreboard();
-});
-
-document.getElementById("addRowBtn").onclick = () => {
-    scoreBody.insertAdjacentHTML("beforeend", createRowHTML("Neuer Spieler"));
+// UPDATE BUTTON
+document.getElementById("updateBtn").onclick = () => {
+    calculateAll();
+    sortTable();
+    highlightWinner();
     saveScoreboard();
 };
 
+// Neuer Spieler
+document.getElementById("addRowBtn").onclick = () => {
+    scoreBody.insertAdjacentHTML("beforeend", createRowHTML("Neuer Spieler"));
+};
+
+// Reset
 document.getElementById("resetScoreBtn").onclick = () => {
     if (confirm("Scoreboard wirklich zurücksetzen?")) {
         localStorage.removeItem("scoreboard");
         createDefaultPlayers();
-        sortTable();
     }
 };
 
+// Beim Laden
 window.onload = () => {
     const saved = localStorage.getItem("scoreboard");
 
@@ -194,8 +208,6 @@ window.onload = () => {
     } else {
         createDefaultPlayers();
     }
-
-    sortTable();
 };
 </script>
 
