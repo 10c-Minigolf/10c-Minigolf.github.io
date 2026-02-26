@@ -241,7 +241,10 @@ body {
     color: black;
     box-shadow: 0 0 20px var(--neon-blue);
 }
-
+@font-face {
+    font-family: 'Yamatoshi';
+    src: url('fonts/Yamatoshi.ttf') format('truetype');
+}
 /* ---------------- FOOTER ---------------- */
 
 .footer {
@@ -250,3 +253,4 @@ body {
     border-top: 2px solid var(--neon-pink);
     box-shadow: 0 0 20px var(--neon-pink);
 }
+
