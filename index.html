@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tokyo Neon Schwarzlicht Minigolf – Klasse 10C</title>
     <link rel="stylesheet" href="10c-minigolf.css" />
+    <style>
+        @font-face {
+            font-family: 'Yamatoshi';
+            src: url('fonts/Yamatoshi.ttf') format('truetype');
+        }
+
+        h1, h2, h3 {
+            font-family: 'Yamatoshi', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
 
+<!-- BIG LOGO -->
 <section class="big-logo-section">
     <img src="minigolf2.png" alt="Projekt Logo" class="big-logo-img">
 </section>
@@ -162,13 +173,13 @@
     <p>© 2025/26 – Klasse 10C</p>
 </footer>
 
+<!-- ---------------- JavaScript für Scoreboard ---------------- -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const scoreBody = document.getElementById('scoreBody');
     const updateBtn = document.getElementById('updateBtn');
     const addPlayerBtn = document.getElementById('addPlayerBtn');
 
-    // Funktion um Zellen nur 0–6 zu erlauben
     function sanitizeCell(cell) {
         let val = parseInt(cell.textContent);
         if(isNaN(val) || val < 0) val = 0;
@@ -212,10 +223,25 @@ document.addEventListener('DOMContentLoaded', () => {
         scoreBody.appendChild(newRow);
     });
 
-    // Event: Eingabe nur 0–6 bei jeder Zelle
+    // Zellen-Eingabe: 0 verschwindet beim Tippen, nur 0–6
+    scoreBody.addEventListener('focus', e => {
+        if(e.target.matches('td[contenteditable="true"]') && e.target.textContent === '0') {
+            e.target.textContent = '';
+        }
+    });
+
     scoreBody.addEventListener('input', e => {
         if(e.target.matches('td[contenteditable="true"]')) {
-            sanitizeCell(e.target);
+            let val = e.target.textContent.replace(/[^0-9]/g,''); 
+            if(val === '') return;
+            val = Math.min(parseInt(val), 6);
+            e.target.textContent = val;
+        }
+    });
+
+    scoreBody.addEventListener('blur', e => {
+        if(e.target.matches('td[contenteditable="true"]') && e.target.textContent.trim() === '') {
+            e.target.textContent = '0';
         }
     });
 });
