@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tokyo Neon Schwarzlicht Minigolf – Klasse 10C</title>
     <link rel="stylesheet" href="10c-minigolf.css" />
+    <!-- Optional: CSS direkt hier, sonst externe Datei -->
 </head>
 
 <body>
@@ -41,7 +42,7 @@
     </p>
 </section>
 
-<!-- BAHNEN (6) -->
+<!-- BAHNEN -->
 <section id="courses" class="section">
     <h2>Unsere Bahnen</h2>
     <div class="course-grid">
@@ -54,7 +55,7 @@
     </div>
 </section>
 
-<!-- GALERIE (6) -->
+<!-- GALERIE -->
 <section id="gallery" class="section">
     <h2>Galerie</h2>
     <div class="gallery-grid">
@@ -66,9 +67,10 @@
         <div class="img-placeholder">Foto 6</div>
     </div>
 </section>
+
+<!-- SCOREBOARD -->
 <section id="scoreboard" class="section">
     <h2>Scoreboard</h2>
-
     <div class="scoreboard-container">
         <table class="scoreboard-table">
             <thead>
@@ -83,63 +85,56 @@
                     <th>R6</th>
                 </tr>
             </thead>
-
             <tbody id="scoreBody">
-
                 <tr>
                     <td>Spieler 1</td>
                     <td class="total">0</td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
                 </tr>
-
                 <tr>
                     <td>Spieler 2</td>
                     <td class="total">0</td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
                 </tr>
-
                 <tr>
                     <td>Spieler 3</td>
                     <td class="total">0</td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
                 </tr>
-
                 <tr>
                     <td>Spieler 4</td>
                     <td class="total">0</td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
-                    <td contenteditable="true"></td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
                 </tr>
-
             </tbody>
         </table>
 
         <br>
-
         <button id="addPlayerBtn">Spieler hinzufügen</button>
         <button id="updateBtn">Update</button>
-
     </div>
 </section>
+
 <!-- HALL OF FAME -->
 <section id="halloffame" class="section">
     <h2>🏆 Hall of Fame 🏆</h2>
@@ -171,11 +166,46 @@
     </div>
 </section>
 
-
 <footer class="footer">
     <p>© 2025/26 – Klasse 10C</p>
 </footer>
 
+<!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const scoreBody = document.getElementById('scoreBody');
+    const updateBtn = document.getElementById('updateBtn');
+    const addPlayerBtn = document.getElementById('addPlayerBtn');
+
+    // Update: berechnet Gesamtpunkte
+    updateBtn.addEventListener('click', () => {
+        scoreBody.querySelectorAll('tr').forEach(row => {
+            let total = 0;
+            row.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
+                const val = parseInt(cell.textContent);
+                if(!isNaN(val)) total += val;
+            });
+            row.querySelector('.total').textContent = total;
+        });
+    });
+
+    // Spieler hinzufügen: neue Zeile mit 0
+    addPlayerBtn.addEventListener('click', () => {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>Spieler ${scoreBody.children.length + 1}</td>
+            <td class="total">0</td>
+            <td contenteditable="true">0</td>
+            <td contenteditable="true">0</td>
+            <td contenteditable="true">0</td>
+            <td contenteditable="true">0</td>
+            <td contenteditable="true">0</td>
+            <td contenteditable="true">0</td>
+        `;
+        scoreBody.appendChild(newRow);
+    });
+});
+</script>
 
 </body>
 </html>
