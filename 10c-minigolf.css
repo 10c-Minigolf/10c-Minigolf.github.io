@@ -18,7 +18,7 @@ body {
     font-family: var(--font-main);
 }
 
-/* HEADER -------------------------------------- */
+/* ---------------- HEADER ---------------- */
 
 .header {
     background: rgba(0,0,0,0.4);
@@ -28,31 +28,6 @@ body {
     border-bottom: 2px solid var(--neon-purple);
     box-shadow: 0 0 20px var(--neon-purple);
 }
-
-/* LOGO (kleines oben im Header) */
-.logo-img {
-    height: 30px;
-    filter:
-        drop-shadow(0 0 10px var(--neon-pink))
-        drop-shadow(0 0 20px var(--neon-blue))
-        drop-shadow(0 0 35px var(--neon-purple));
-    animation: pulseLogo 2s infinite alternate;
-}
-
-@keyframes pulseLogo {
-    from {
-        filter:
-        drop-shadow(0 0 10px var(--neon-pink))
-        drop-shadow(0 0 20px var(--neon-blue));
-    }
-    to {
-        filter:
-        drop-shadow(0 0 25px var(--neon-pink))
-        drop-shadow(0 0 40px var(--neon-blue));
-    }
-}
-
-/* NAV */
 
 .nav a {
     margin: 0 15px;
@@ -67,7 +42,33 @@ body {
     text-shadow: 0 0 10px var(--neon-pink);
 }
 
-/* HERO SECTION */
+/* ---------------- BIG LOGO ---------------- */
+
+.big-logo-section {
+    width: 100%;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.2),
+        rgba(10,0,40,0.8)
+    );
+    border-bottom: 2px solid var(--neon-purple);
+    box-shadow: 0 0 35px var(--neon-purple);
+}
+
+.big-logo-img {
+    max-width: 320px;
+    width: 100%;
+    filter:
+        drop-shadow(0 0 30px var(--neon-blue))
+        drop-shadow(0 0 60px var(--neon-pink))
+        drop-shadow(0 0 90px var(--neon-purple));
+}
+
+/* ---------------- HERO ---------------- */
 
 .hero {
     text-align: center;
@@ -91,21 +92,15 @@ body {
         0 0 20px var(--neon-blue),
         0 0 40px var(--neon-yellow),
         0 0 60px var(--neon-purple);
-    animation: flicker 3s infinite;
 }
 
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
-}
-
-/* SECTIONS */
+/* ---------------- SECTIONS ---------------- */
 
 .section {
     padding: 70px 10%;
 }
 
-/* COURSE GRID */
+/* ---------------- BAHNEN ---------------- */
 
 .course-grid {
     display: grid;
@@ -127,7 +122,7 @@ body {
     box-shadow: 0 0 40px var(--neon-pink);
 }
 
-/* GALLERY */
+/* ---------------- GALERIE ---------------- */
 
 .gallery-grid {
     display: grid;
@@ -139,12 +134,53 @@ body {
     background: rgba(255,255,255,0.1);
     border: 2px dashed var(--neon-blue);
     color: var(--neon-blue);
-    padding: 60px 0;
+    padding: 80px 0;
     text-align: center;
     border-radius: 10px;
+    font-weight: bold;
 }
 
-/* SCOREBOARD */
+/* ---------------- HALL OF FAME ---------------- */
+
+.hof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.hof-card {
+    background: rgba(15, 0, 40, 0.85);
+    border: 2px solid var(--neon-yellow);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 25px var(--neon-yellow);
+    transition: 0.3s;
+}
+
+.hof-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--neon-yellow);
+}
+
+.hof-card h3 {
+    color: var(--neon-pink);
+}
+
+.hof-img {
+    height: 150px;
+    background: rgba(255,255,255,0.1);
+    border: 2px dashed var(--neon-pink);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neon-blue);
+    font-weight: bold;
+}
+
+/* ---------------- SCOREBOARD ---------------- */
 
 .scoreboard-container {
     background: rgba(5, 5, 20, 0.85);
@@ -152,20 +188,15 @@ body {
     border-radius: 15px;
     border: 2px solid var(--neon-blue);
     box-shadow: 0 0 25px var(--neon-blue);
-    max-height: 420px;
-    overflow-y: auto;
 }
 
 .scoreboard-table {
     width: 100%;
     border-collapse: collapse;
     color: var(--neon-yellow);
-    font-size: 1.2rem;
 }
 
 .scoreboard-table th {
-    position: sticky;
-    top: 0;
     background: rgba(0,0,0,0.85);
     border-bottom: 2px solid var(--neon-pink);
     padding: 12px;
@@ -175,41 +206,10 @@ body {
 .scoreboard-table td {
     padding: 12px;
     border-bottom: 1px solid rgba(255,255,255,0.2);
-    background: rgba(0,0,0,0.3);
+    text-align: center;
 }
 
-.scoreboard-table tr:hover td {
-    background: rgba(255,0,200,0.15);
-}
-
-/* BIG LOGO SECTION */
-
-.big-logo-section {
-    width: 100%;
-    padding: 100px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(
-        180deg,
-        rgba(0,0,0,0.2),
-        rgba(10,0,40,0.8)
-    );
-    border-bottom: 2px solid var(--neon-purple);
-    box-shadow: 0 0 35px var(--neon-purple);
-}
-
-/* BIG LOGO – FAST UM DIE HÄLFTE GRÖSSER */
-.big-logo-img {
-    max-width: 320px;
-    width: 100%;
-    filter:
-        drop-shadow(0 0 30px var(--neon-blue))
-        drop-shadow(0 0 60px var(--neon-pink))
-        drop-shadow(0 0 90px var(--neon-purple));
-}
-
-/* FOOTER */
+/* ---------------- FOOTER ---------------- */
 
 .footer {
     text-align: center;
