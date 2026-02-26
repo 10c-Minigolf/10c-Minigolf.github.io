@@ -11,9 +11,7 @@
 
 <!-- BIG LOGO -->
 <section class="big-logo-section">
-    <div class="logo-frame">
-        <img src="minigolf2.png" alt="Projekt Logo" class="big-logo-img">
-    </div>
+    <img src="minigolf2.png" alt="Projekt Logo" class="big-logo-img">
 </section>
 
 <header class="header">
@@ -38,29 +36,27 @@
 <section id="about" class="section">
     <h2>Über das Projekt</h2>
     <p>
-        Wir, die Klasse <strong>10C</strong>, bauen eine eigene Schwarzlicht-Minigolfbahn zum Thema 
-        <strong>„Tokyo“</strong>. Neon, Cyberpunk, alte Tempel, moderne Stadt – alles vereint in einem leuchtenden Erlebnis.
+        Wir, die Klasse <strong>10C</strong>, bauen eine eigene Schwarzlicht-Minigolfbahn
+        zum Thema <strong>„Tokyo“</strong>.
     </p>
 </section>
 
 <!-- BAHNEN (6) -->
 <section id="courses" class="section">
     <h2>Unsere Bahnen</h2>
-
     <div class="course-grid">
-        <div class="course"><h3>❖ Bahn 1</h3><p>Beschreibung 1.</p></div>
-        <div class="course"><h3>❖ Bahn 2</h3><p>Beschreibung 2.</p></div>
-        <div class="course"><h3>❖ Bahn 3</h3><p>Beschreibung 3.</p></div>
-        <div class="course"><h3>❖ Bahn 4</h3><p>Beschreibung 4.</p></div>
-        <div class="course"><h3>❖ Bahn 5</h3><p>Beschreibung 5.</p></div>
-        <div class="course"><h3>❖ Bahn 6</h3><p>Beschreibung 6.</p></div>
+        <div class="course"><h3>❖ Bahn 1</h3><p>Beschreibung 1</p></div>
+        <div class="course"><h3>❖ Bahn 2</h3><p>Beschreibung 2</p></div>
+        <div class="course"><h3>❖ Bahn 3</h3><p>Beschreibung 3</p></div>
+        <div class="course"><h3>❖ Bahn 4</h3><p>Beschreibung 4</p></div>
+        <div class="course"><h3>❖ Bahn 5</h3><p>Beschreibung 5</p></div>
+        <div class="course"><h3>❖ Bahn 6</h3><p>Beschreibung 6</p></div>
     </div>
 </section>
 
-<!-- GALERIE (6 BILDER) -->
+<!-- GALERIE (6) -->
 <section id="gallery" class="section">
     <h2>Galerie</h2>
-
     <div class="gallery-grid">
         <div class="img-placeholder">Foto 1</div>
         <div class="img-placeholder">Foto 2</div>
@@ -71,50 +67,104 @@
     </div>
 </section>
 
-<!-- 🏆 HALL OF FAME (JETZT UNTER GALERIE) -->
+<!-- HALL OF FAME -->
 <section id="halloffame" class="section">
     <h2>🏆 Hall of Fame 🏆</h2>
-
     <div class="hof-grid">
-
         <div class="hof-card">
             <div class="hof-img">Foto</div>
             <h3>Gewinner 1</h3>
             <p><strong>Jahr:</strong> 2026</p>
-            <p><strong>Punkte:</strong> noch offen</p>
+            <p><strong>Punkte:</strong> 18</p>
         </div>
-
         <div class="hof-card">
             <div class="hof-img">Foto</div>
             <h3>Gewinner 2</h3>
-            <p><strong>Jahr:</strong> 202?</p>
-            <p><strong>Punkte:</strong> noch offen</p>
+            <p><strong>Jahr:</strong> 2026</p>
+            <p><strong>Punkte:</strong> 21</p>
         </div>
-
         <div class="hof-card">
             <div class="hof-img">Foto</div>
             <h3>Gewinner 3</h3>
-            <p><strong>Jahr:</strong> 202?</p>
-            <p><strong>Punkte:</strong> noch offen</p>
+            <p><strong>Jahr:</strong> 2025</p>
+            <p><strong>Punkte:</strong> 16</p>
         </div>
-
         <div class="hof-card">
             <div class="hof-img">Foto</div>
             <h3>Gewinner 4</h3>
-            <p><strong>Jahr:</strong> 202?</p>
-            <p><strong>Punkte:</strong> noch offen</p>
+            <p><strong>Jahr:</strong> 2025</p>
+            <p><strong>Punkte:</strong> 19</p>
         </div>
-
     </div>
 </section>
 
 <!-- SCOREBOARD -->
 <section id="scoreboard" class="section">
     <h2>Scoreboard</h2>
-    <!-- Dein Scoreboard bleibt hier unverändert -->
+
+    <div class="scoreboard-container">
+        <table class="scoreboard-table">
+            <thead>
+                <tr>
+                    <th>Spieler</th>
+                    <th>Punkte</th>
+                    <th>R1</th>
+                    <th>R2</th>
+                    <th>R3</th>
+                    <th>R4</th>
+                    <th>R5</th>
+                </tr>
+            </thead>
+            <tbody id="scoreBody">
+
+                <tr>
+                    <td>Spieler 1</td>
+                    <td class="total">0</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+
+                <tr>
+                    <td>Spieler 2</td>
+                    <td class="total">0</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+
+                <tr>
+                    <td>Spieler 3</td>
+                    <td class="total">0</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+
+                <tr>
+                    <td>Spieler 4</td>
+                    <td class="total">0</td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <br>
+        <button id="updateBtn">Update</button>
+    </div>
 </section>
 
-<!-- KONTAKT -->
 <section id="contact" class="section">
     <h2>Kontakt</h2>
     <p><strong>Klasse 10C – Schulprojekt Tokyo Minigolf</strong></p>
@@ -123,6 +173,27 @@
 <footer class="footer">
     <p>© 2025/26 – Klasse 10C</p>
 </footer>
+
+<!-- JAVASCRIPT -->
+<script>
+document.getElementById("updateBtn").onclick = function() {
+
+    const rows = document.querySelectorAll("#scoreBody tr");
+
+    rows.forEach(row => {
+        let sum = 0;
+        const cells = row.querySelectorAll("td");
+
+        for (let i = 2; i <= 6; i++) {
+            let value = cells[i].innerText.replace(/[^0-9]/g, "");
+            cells[i].innerText = value;
+            sum += parseInt(value) || 0;
+        }
+
+        row.querySelector(".total").innerText = sum;
+    });
+};
+</script>
 
 </body>
 </html>
