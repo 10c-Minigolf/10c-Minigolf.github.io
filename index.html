@@ -166,6 +166,18 @@
             <p><strong>Jahr:</strong> noch offen</p>
             <p><strong>Schläge:</strong> noch offen</p>
         </div>
+        <div class="hof-card">
+            <div class="hof-img">Foto</div>
+            <h3>Gewinner 5</h3>
+            <p><strong>Jahr:</strong> noch offen</p>
+            <p><strong>Schläge:</strong> noch offen</p>
+        </div>
+        <div class="hof-card">
+            <div class="hof-img">Foto</div>
+            <h3>Gewinner 6</h3>
+            <p><strong>Jahr:</strong> noch offen</p>
+            <p><strong>Schläge:</strong> noch offen</p>
+        </div>
     </div>
 </section>
 
@@ -173,7 +185,6 @@
     <p>© 2025/26 – Klasse 10C</p>
 </footer>
 
-<!-- ---------------- JavaScript für Scoreboard ---------------- -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const scoreBody = document.getElementById('scoreBody');
@@ -188,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return val;
     }
 
-    // Update Button: berechnet Schläge und sortiert
     updateBtn.addEventListener('click', () => {
         const rows = Array.from(scoreBody.querySelectorAll('tr'));
         rows.forEach(row => {
@@ -199,14 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
             row.querySelector('.total').textContent = total;
         });
 
-        // Sortieren nach Gesamt-Schläge (kleinster zuerst)
         rows.sort((a, b) => {
             return parseInt(a.querySelector('.total').textContent) - parseInt(b.querySelector('.total').textContent);
         });
         rows.forEach(row => scoreBody.appendChild(row));
     });
 
-    // Spieler hinzufügen
     addPlayerBtn.addEventListener('click', () => {
         const newRow = document.createElement('tr');
         const num = scoreBody.children.length + 1;
@@ -223,7 +231,6 @@ document.addEventListener('DOMContentLoaded', () => {
         scoreBody.appendChild(newRow);
     });
 
-    // Zellen-Eingabe: 0 verschwindet beim Tippen, nur 0–6
     scoreBody.addEventListener('focus', e => {
         if(e.target.matches('td[contenteditable="true"]') && e.target.textContent === '0') {
             e.target.textContent = '';
