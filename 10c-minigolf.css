@@ -29,9 +29,9 @@ body {
     box-shadow: 0 0 20px var(--neon-purple);
 }
 
-/* LOGO WEITER VERKLEINERT */
+/* LOGO (kleines oben im Header) */
 .logo-img {
-    height: 30px; /* vorher 45px */
+    height: 30px;
     filter:
         drop-shadow(0 0 10px var(--neon-pink))
         drop-shadow(0 0 20px var(--neon-blue))
@@ -182,7 +182,7 @@ body {
     background: rgba(255,0,200,0.15);
 }
 
-/* BIG LOGO */
+/* BIG LOGO SECTION */
 
 .big-logo-section {
     width: 100%;
@@ -199,10 +199,10 @@ body {
     box-shadow: 0 0 35px var(--neon-purple);
 }
 
-/* BIG LOGO WEITER VERKLEINERT */
+/* BIG LOGO – ETWAS VERGRÖSSERT */
 .big-logo-img {
-    max-width: 180px; /* vorher 260px */
-    width: 70%;
+    max-width: 220px;   /* vorher 180px */
+    width: 85%;         /* vorher 70% */
     filter:
         drop-shadow(0 0 25px var(--neon-blue))
         drop-shadow(0 0 45px var(--neon-pink))
