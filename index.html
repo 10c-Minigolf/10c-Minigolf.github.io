@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tokyo Neon Schwarzlicht Minigolf – Klasse 10C</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- CSS Datei -->
-    <link rel="stylesheet" href="10c-minigolf.css">
-
-    <!-- Yamatoshi Schrift -->
+    <link rel="stylesheet" href="10c-minigolf.css" />
     <style>
         @font-face {
             font-family: 'Yamatoshi';
@@ -23,127 +19,238 @@
 
 <body>
 
-<header>
-    <h1>Tokyo MiniGolf 10C</h1>
-</header>
-
-<section id="scoreboard">
-    <h2>Scoreboard</h2>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Spieler</th>
-                <th>Schläge</th>
-                <th>R1</th>
-                <th>R2</th>
-                <th>R3</th>
-                <th>R4</th>
-                <th>R5</th>
-                <th>R6</th>
-            </tr>
-        </thead>
-
-        <tbody id="scoreBody">
-            <tr>
-                <td>Spieler 1</td>
-                <td class="total">0</td>
-                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <button id="addPlayerBtn">Spieler hinzufügen</button>
-    <button id="updateBtn">Update</button>
+<!-- BIG LOGO -->
+<section class="big-logo-section">
+    <img src="minigolf2.png" alt="Projekt Logo" class="big-logo-img">
 </section>
 
-<section id="halloffame">
-    <h2>🏆 Hall of Fame 🏆</h2>
+<header class="header">
+    <h1 class="logo">Tokyo MiniGolf 10C</h1>
+    <nav class="nav">
+        <a href="#about">Über uns</a>
+        <a href="#courses">Bahnen</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#halloffame">Hall of Fame</a>
+        <a href="#scoreboard">Scoreboard</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
+</header>
 
-    <div class="hof-grid">
-        <div class="hof-card"><h3>Platz 1</h3></div>
-        <div class="hof-card"><h3>Platz 2</h3></div>
-        <div class="hof-card"><h3>Platz 3</h3></div>
-        <div class="hof-card"><h3>Platz 4</h3></div>
-        <div class="hof-card"><h3>Platz 5</h3></div>
-        <div class="hof-card"><h3>Platz 6</h3></div>
+<section class="hero">
+    <h2>Tokyo – Altes trifft Neon</h2>
+    <p>Eine Schwarzlicht-MiniGolfbahn von der Klasse 10C</p>
+    <div class="kanji">東京</div>
+</section>
+
+<section id="about" class="section">
+    <h2>Über das Projekt</h2>
+    <p>
+        Wir, die Klasse <strong>10C</strong>, bauen eine eigene Schwarzlicht-Minigolfbahn
+        zum Thema <strong>„Tokyo“</strong>.
+    </p>
+</section>
+
+<section id="courses" class="section">
+    <h2>Unsere Bahnen</h2>
+    <div class="course-grid">
+        <div class="course"><h3>❖ Bahn 1</h3><p>Beschreibung 1</p></div>
+        <div class="course"><h3>❖ Bahn 2</h3><p>Beschreibung 2</p></div>
+        <div class="course"><h3>❖ Bahn 3</h3><p>Beschreibung 3</p></div>
+        <div class="course"><h3>❖ Bahn 4</h3><p>Beschreibung 4</p></div>
+        <div class="course"><h3>❖ Bahn 5</h3><p>Beschreibung 5</p></div>
+        <div class="course"><h3>❖ Bahn 6</h3><p>Beschreibung 6</p></div>
     </div>
 </section>
 
+<section id="gallery" class="section">
+    <h2>Galerie</h2>
+    <div class="gallery-grid">
+        <div class="img-placeholder">Foto 1</div>
+        <div class="img-placeholder">Foto 2</div>
+        <div class="img-placeholder">Foto 3</div>
+        <div class="img-placeholder">Foto 4</div>
+        <div class="img-placeholder">Foto 5</div>
+        <div class="img-placeholder">Foto 6</div>
+    </div>
+</section>
+
+<section id="scoreboard" class="section">
+    <h2>Scoreboard</h2>
+    <div class="scoreboard-container">
+        <table class="scoreboard-table">
+            <thead>
+                <tr>
+                    <th>Spieler</th>
+                    <th>Schläge</th>
+                    <th>R1</th>
+                    <th>R2</th>
+                    <th>R3</th>
+                    <th>R4</th>
+                    <th>R5</th>
+                    <th>R6</th>
+                </tr>
+            </thead>
+            <tbody id="scoreBody">
+                <tr>
+                    <td>Spieler 1</td>
+                    <td class="total">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                </tr>
+                <tr>
+                    <td>Spieler 2</td>
+                    <td class="total">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                </tr>
+                <tr>
+                    <td>Spieler 3</td>
+                    <td class="total">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                </tr>
+                <tr>
+                    <td>Spieler 4</td>
+                    <td class="total">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                    <td contenteditable="true">0</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <button id="addPlayerBtn">Spieler hinzufügen</button>
+        <button id="updateBtn">Update</button>
+    </div>
+</section>
+
+<section id="halloffame" class="section">
+    <h2>🏆 Hall of Fame 🏆</h2>
+    <div class="hof-grid">
+        <div class="hof-card">
+            <div class="hof-img">Foto</div>
+            <h3>Gewinner 1</h3>
+            <p><strong>Jahr:</strong> 2026</p>
+            <p><strong>Schläge:</strong> noch offen</p>
+        </div>
+        <div class="hof-card">
+            <div class="hof-img">Foto</div>
+            <h3>Gewinner 2</h3>
+            <p><strong>Jahr:</strong> noch offen</p>
+            <p><strong>Schläge:</strong> noch offen</p>
+        </div>
+        <div class="hof-card">
+            <div class="hof-img">Foto</div>
+            <h3>Gewinner 3</h3>
+            <p><strong>Jahr:</strong> noch offen</p>
+            <p><strong>Schläge:</strong> noch offen</p>
+        </div>
+        <div class="hof-card">
+            <div class="hof-img">Foto</div>
+            <h3>Gewinner 4</h3>
+            <p><strong>Jahr:</strong> noch offen</p>
+            <p><strong>Schläge:</strong> noch offen</p>
+        </div>
+        <div class="hof-card">
+            <div class="hof-img">Foto</div>
+            <h3>Gewinner 5</h3>
+            <p><strong>Jahr:</strong> noch offen</p>
+            <p><strong>Schläge:</strong> noch offen</p>
+        </div>
+        <div class="hof-card">
+            <div class="hof-img">Foto</div>
+            <h3>Gewinner 6</h3>
+            <p><strong>Jahr:</strong> noch offen</p>
+            <p><strong>Schläge:</strong> noch offen</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2025/26 – Klasse 10C</p>
+</footer>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-
     const scoreBody = document.getElementById('scoreBody');
     const updateBtn = document.getElementById('updateBtn');
     const addPlayerBtn = document.getElementById('addPlayerBtn');
 
-    // 0 löschen beim Anklicken
-    document.addEventListener('focusin', function(e){
-        if(e.target.classList.contains('score-input') && e.target.value === "0"){
-            e.target.value = "";
-        }
-    });
+    function sanitizeCell(cell) {
+        let val = parseInt(cell.textContent);
+        if(isNaN(val) || val < 0) val = 0;
+        if(val > 6) val = 6;
+        cell.textContent = val;
+        return val;
+    }
 
-    // 0 wieder einsetzen wenn leer
-    document.addEventListener('focusout', function(e){
-        if(e.target.classList.contains('score-input') && e.target.value === ""){
-            e.target.value = "0";
-        }
-    });
-
-    // Update Button
     updateBtn.addEventListener('click', () => {
-
         const rows = Array.from(scoreBody.querySelectorAll('tr'));
-
         rows.forEach(row => {
             let total = 0;
-
-            row.querySelectorAll('.score-input').forEach(input => {
-                let val = parseInt(input.value);
-                if(isNaN(val) || val < 0) val = 0;
-                if(val > 6) val = 6;
-                input.value = val;
-                total += val;
+            row.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
+                total += sanitizeCell(cell);
             });
-
             row.querySelector('.total').textContent = total;
         });
 
-        // Sortieren
         rows.sort((a, b) => {
-            return parseInt(a.querySelector('.total').textContent) -
-                   parseInt(b.querySelector('.total').textContent);
+            return parseInt(a.querySelector('.total').textContent) - parseInt(b.querySelector('.total').textContent);
         });
-
         rows.forEach(row => scoreBody.appendChild(row));
     });
 
-    // Spieler hinzufügen
     addPlayerBtn.addEventListener('click', () => {
-
-        const num = scoreBody.children.length + 1;
         const newRow = document.createElement('tr');
-
+        const num = scoreBody.children.length + 1;
         newRow.innerHTML = `
             <td>Spieler ${num}</td>
             <td class="total">0</td>
-            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+            <td contenteditable="true">0</td>
+            <td contenteditable="true">0</td>
+            <td contenteditable="true">0</td>
+            <td contenteditable="true">0</td>
+            <td contenteditable="true">0</td>
+            <td contenteditable="true">0</td>
         `;
-
         scoreBody.appendChild(newRow);
     });
 
+    scoreBody.addEventListener('focus', e => {
+        if(e.target.matches('td[contenteditable="true"]') && e.target.textContent === '0') {
+            e.target.textContent = '';
+        }
+    });
+
+    scoreBody.addEventListener('input', e => {
+        if(e.target.matches('td[contenteditable="true"]')) {
+            let val = e.target.textContent.replace(/[^0-9]/g,''); 
+            if(val === '') return;
+            val = Math.min(parseInt(val), 6);
+            e.target.textContent = val;
+        }
+    });
+
+    scoreBody.addEventListener('blur', e => {
+        if(e.target.matches('td[contenteditable="true"]') && e.target.textContent.trim() === '') {
+            e.target.textContent = '0';
+        }
+    });
 });
 </script>
 
