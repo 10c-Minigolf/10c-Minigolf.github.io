@@ -5,16 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tokyo Neon Schwarzlicht Minigolf – Klasse 10C</title>
     <link rel="stylesheet" href="10c-minigolf.css" />
-    <style>
-        @font-face {
-            font-family: 'Yamatoshi';
-            src: url('fonts/Yamatoshi.ttf') format('truetype');
-        }
-
-        h1, h2, h3 {
-            font-family: 'Yamatoshi', sans-serif;
-        }
-    </style>
 </head>
 
 <body>
@@ -38,7 +28,7 @@
 
 <section class="hero">
     <h2>Tokyo – Altes trifft Neon</h2>
-    <p>Eine Schwarzlicht-MiniGolfbahn von der Klasse 10C</p>
+    <p>Eine Schwarzlicht-MiniGolfbahn von der Klasse <strong>10C</strong></p>
     <div class="kanji">東京</div>
 </section>
 
@@ -111,26 +101,6 @@
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
                 </tr>
-                <tr>
-                    <td>Spieler 3</td>
-                    <td class="total">0</td>
-                    <td contenteditable="true">0</td>
-                    <td contenteditable="true">0</td>
-                    <td contenteditable="true">0</td>
-                    <td contenteditable="true">0</td>
-                    <td contenteditable="true">0</td>
-                    <td contenteditable="true">0</td>
-                </tr>
-                <tr>
-                    <td>Spieler 4</td>
-                    <td class="total">0</td>
-                    <td contenteditable="true">0</td>
-                    <td contenteditable="true">0</td>
-                    <td contenteditable="true">0</td>
-                    <td contenteditable="true">0</td>
-                    <td contenteditable="true">0</td>
-                    <td contenteditable="true">0</td>
-                </tr>
             </tbody>
         </table>
         <br>
@@ -148,36 +118,7 @@
             <p><strong>Jahr:</strong> 2026</p>
             <p><strong>Schläge:</strong> noch offen</p>
         </div>
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 2</h3>
-            <p><strong>Jahr:</strong> noch offen</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 3</h3>
-            <p><strong>Jahr:</strong> noch offen</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 4</h3>
-            <p><strong>Jahr:</strong> noch offen</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 5</h3>
-            <p><strong>Jahr:</strong> noch offen</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 6</h3>
-            <p><strong>Jahr:</strong> noch offen</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
+        <!-- Weitere Gewinner -->
     </div>
 </section>
 
@@ -185,74 +126,6 @@
     <p>© 2025/26 – Klasse 10C</p>
 </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const scoreBody = document.getElementById('scoreBody');
-    const updateBtn = document.getElementById('updateBtn');
-    const addPlayerBtn = document.getElementById('addPlayerBtn');
-
-    function sanitizeCell(cell) {
-        let val = parseInt(cell.textContent);
-        if(isNaN(val) || val < 0) val = 0;
-        if(val > 6) val = 6;
-        cell.textContent = val;
-        return val;
-    }
-
-    updateBtn.addEventListener('click', () => {
-        const rows = Array.from(scoreBody.querySelectorAll('tr'));
-        rows.forEach(row => {
-            let total = 0;
-            row.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
-                total += sanitizeCell(cell);
-            });
-            row.querySelector('.total').textContent = total;
-        });
-
-        rows.sort((a, b) => {
-            return parseInt(a.querySelector('.total').textContent) - parseInt(b.querySelector('.total').textContent);
-        });
-        rows.forEach(row => scoreBody.appendChild(row));
-    });
-
-    addPlayerBtn.addEventListener('click', () => {
-        const newRow = document.createElement('tr');
-        const num = scoreBody.children.length + 1;
-        newRow.innerHTML = `
-            <td>Spieler ${num}</td>
-            <td class="total">0</td>
-            <td contenteditable="true">0</td>
-            <td contenteditable="true">0</td>
-            <td contenteditable="true">0</td>
-            <td contenteditable="true">0</td>
-            <td contenteditable="true">0</td>
-            <td contenteditable="true">0</td>
-        `;
-        scoreBody.appendChild(newRow);
-    });
-
-    scoreBody.addEventListener('focus', e => {
-        if(e.target.matches('td[contenteditable="true"]') && e.target.textContent === '0') {
-            e.target.textContent = '';
-        }
-    });
-
-    scoreBody.addEventListener('input', e => {
-        if(e.target.matches('td[contenteditable="true"]')) {
-            let val = e.target.textContent.replace(/[^0-9]/g,''); 
-            if(val === '') return;
-            val = Math.min(parseInt(val), 6);
-            e.target.textContent = val;
-        }
-    });
-
-    scoreBody.addEventListener('blur', e => {
-        if(e.target.matches('td[contenteditable="true"]') && e.target.textContent.trim() === '') {
-            e.target.textContent = '0';
-        }
-    });
-});
-</script>
-
+<script src="10c-minigolf.js"></script>
 </body>
 </html>
