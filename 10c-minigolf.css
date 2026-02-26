@@ -1,4 +1,3 @@
-
 /* -------------------------------- */
 /* TOKYO NEON CYBERPUNK SCHWARZLICHT */
 /* -------------------------------- */
@@ -224,9 +223,9 @@ body {
     background: rgba(255,0,200,0.1);
 }
 
-/* Update Button */
+/* ---------------- BUTTONS ---------------- */
 
-#updateBtn {
+#updateBtn, #addPlayerBtn {
     padding: 10px 20px;
     font-size: 1rem;
     background: transparent;
@@ -235,17 +234,15 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+    margin-right: 10px;
 }
 
-#updateBtn:hover {
+#updateBtn:hover, #addPlayerBtn:hover {
     background: var(--neon-blue);
     color: black;
     box-shadow: 0 0 20px var(--neon-blue);
 }
-@font-face {
-    font-family: 'Yamatoshi';
-    src: url('fonts/Yamatoshi.ttf') format('truetype');
-}
+
 /* ---------------- FOOTER ---------------- */
 
 .footer {
