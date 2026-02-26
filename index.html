@@ -104,17 +104,17 @@
 <script>
 const scoreBody = document.getElementById("scoreBody");
 
-// Zeile erstellen (JETZT OHNE 0)
+// Zeile erstellen
 function createRowHTML(name) {
     return `
         <tr>
             <td contenteditable="true">${name}</td>
-            <td class="total"></td>
-            <td contenteditable="true" class="round"></td>
-            <td contenteditable="true" class="round"></td>
-            <td contenteditable="true" class="round"></td>
-            <td contenteditable="true" class="round"></td>
-            <td contenteditable="true" class="round"></td>
+            <td class="total">0</td>
+            <td contenteditable="true" class="round">0</td>
+            <td contenteditable="true" class="round">0</td>
+            <td contenteditable="true" class="round">0</td>
+            <td contenteditable="true" class="round">0</td>
+            <td contenteditable="true" class="round">0</td>
         </tr>
     `;
 }
