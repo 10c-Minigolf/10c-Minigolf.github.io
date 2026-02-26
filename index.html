@@ -9,7 +9,6 @@
 
 <body>
 
-<!-- BIG LOGO -->
 <section class="big-logo-section">
     <img src="minigolf2.png" alt="Projekt Logo" class="big-logo-img">
 </section>
@@ -163,33 +162,40 @@
     <p>© 2025/26 – Klasse 10C</p>
 </footer>
 
-<!-- ---------------- JavaScript für Scoreboard ---------------- -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const scoreBody = document.getElementById('scoreBody');
     const updateBtn = document.getElementById('updateBtn');
     const addPlayerBtn = document.getElementById('addPlayerBtn');
 
-    // Update Button: berechnet Schläge und sortiert nach wenigsten
+    // Funktion um Zellen nur 0–6 zu erlauben
+    function sanitizeCell(cell) {
+        let val = parseInt(cell.textContent);
+        if(isNaN(val) || val < 0) val = 0;
+        if(val > 6) val = 6;
+        cell.textContent = val;
+        return val;
+    }
+
+    // Update Button: berechnet Schläge und sortiert
     updateBtn.addEventListener('click', () => {
-        scoreBody.querySelectorAll('tr').forEach(row => {
+        const rows = Array.from(scoreBody.querySelectorAll('tr'));
+        rows.forEach(row => {
             let total = 0;
             row.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
-                const val = parseInt(cell.textContent);
-                if(!isNaN(val)) total += val;
+                total += sanitizeCell(cell);
             });
             row.querySelector('.total').textContent = total;
         });
 
-        // Sortieren nach total
-        const rows = Array.from(scoreBody.querySelectorAll('tr'));
+        // Sortieren nach Gesamt-Schläge (kleinster zuerst)
         rows.sort((a, b) => {
             return parseInt(a.querySelector('.total').textContent) - parseInt(b.querySelector('.total').textContent);
         });
         rows.forEach(row => scoreBody.appendChild(row));
     });
 
-    // Spieler hinzufügen Button
+    // Spieler hinzufügen
     addPlayerBtn.addEventListener('click', () => {
         const newRow = document.createElement('tr');
         const num = scoreBody.children.length + 1;
@@ -204,6 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
             <td contenteditable="true">0</td>
         `;
         scoreBody.appendChild(newRow);
+    });
+
+    // Event: Eingabe nur 0–6 bei jeder Zelle
+    scoreBody.addEventListener('input', e => {
+        if(e.target.matches('td[contenteditable="true"]')) {
+            sanitizeCell(e.target);
+        }
     });
 });
 </script>
