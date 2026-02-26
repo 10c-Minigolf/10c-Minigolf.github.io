@@ -5,8 +5,10 @@
     <title>Tokyo Neon Schwarzlicht Minigolf – Klasse 10C</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- CSS Datei -->
     <link rel="stylesheet" href="10c-minigolf.css">
 
+    <!-- Yamatoshi Schrift -->
     <style>
         @font-face {
             font-family: 'Yamatoshi';
@@ -21,109 +23,57 @@
 
 <body>
 
-<!-- BIG LOGO -->
-<section class="big-logo-section">
-    <img src="logo.png" class="big-logo-img" alt="Logo">
-</section>
-
-<!-- HEADER -->
-<header class="header">
-    <h1 class="logo">Tokyo MiniGolf 10C</h1>
-    <nav class="nav">
-        <a href="#courses">Bahnen</a>
-        <a href="#gallery">Galerie</a>
-        <a href="#scoreboard">Scoreboard</a>
-        <a href="#halloffame">Hall of Fame</a>
-    </nav>
+<header>
+    <h1>Tokyo MiniGolf 10C</h1>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-    <h2>Neon Schwarzlicht Erlebnis</h2>
-    <div class="kanji">東京</div>
-</section>
-
-<!-- BAHNEN -->
-<section id="courses" class="section">
-    <h2>Unsere Bahnen</h2>
-    <div class="course-grid">
-        <div class="course">Bahn 1</div>
-        <div class="course">Bahn 2</div>
-        <div class="course">Bahn 3</div>
-        <div class="course">Bahn 4</div>
-        <div class="course">Bahn 5</div>
-        <div class="course">Bahn 6</div>
-    </div>
-</section>
-
-<!-- GALERIE -->
-<section id="gallery" class="section">
-    <h2>Galerie</h2>
-    <div class="gallery-grid">
-        <div class="img-placeholder">Foto 1</div>
-        <div class="img-placeholder">Foto 2</div>
-        <div class="img-placeholder">Foto 3</div>
-        <div class="img-placeholder">Foto 4</div>
-        <div class="img-placeholder">Foto 5</div>
-        <div class="img-placeholder">Foto 6</div>
-    </div>
-</section>
-
-<!-- SCOREBOARD -->
-<section id="scoreboard" class="section">
+<section id="scoreboard">
     <h2>Scoreboard</h2>
 
-    <div class="scoreboard-container">
-        <table class="scoreboard-table">
-            <thead>
-                <tr>
-                    <th>Spieler</th>
-                    <th>Schläge</th>
-                    <th>R1</th>
-                    <th>R2</th>
-                    <th>R3</th>
-                    <th>R4</th>
-                    <th>R5</th>
-                    <th>R6</th>
-                </tr>
-            </thead>
-            <tbody id="scoreBody">
-                <tr>
-                    <td>Spieler 1</td>
-                    <td class="total">0</td>
-                    <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                    <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                    <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                    <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                    <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                    <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
-                </tr>
-            </tbody>
-        </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Spieler</th>
+                <th>Schläge</th>
+                <th>R1</th>
+                <th>R2</th>
+                <th>R3</th>
+                <th>R4</th>
+                <th>R5</th>
+                <th>R6</th>
+            </tr>
+        </thead>
 
-        <br>
-        <button id="addPlayerBtn">Spieler hinzufügen</button>
-        <button id="updateBtn">Update</button>
-    </div>
+        <tbody id="scoreBody">
+            <tr>
+                <td>Spieler 1</td>
+                <td class="total">0</td>
+                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+                <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="addPlayerBtn">Spieler hinzufügen</button>
+    <button id="updateBtn">Update</button>
 </section>
 
-<!-- HALL OF FAME -->
-<section id="halloffame" class="section">
+<section id="halloffame">
     <h2>🏆 Hall of Fame 🏆</h2>
+
     <div class="hof-grid">
-        <div class="hof-card"><h3>Platz 1</h3><div class="hof-img">Bild</div></div>
-        <div class="hof-card"><h3>Platz 2</h3><div class="hof-img">Bild</div></div>
-        <div class="hof-card"><h3>Platz 3</h3><div class="hof-img">Bild</div></div>
-        <div class="hof-card"><h3>Platz 4</h3><div class="hof-img">Bild</div></div>
-        <div class="hof-card"><h3>Platz 5</h3><div class="hof-img">Bild</div></div>
-        <div class="hof-card"><h3>Platz 6</h3><div class="hof-img">Bild</div></div>
+        <div class="hof-card"><h3>Platz 1</h3></div>
+        <div class="hof-card"><h3>Platz 2</h3></div>
+        <div class="hof-card"><h3>Platz 3</h3></div>
+        <div class="hof-card"><h3>Platz 4</h3></div>
+        <div class="hof-card"><h3>Platz 5</h3></div>
+        <div class="hof-card"><h3>Platz 6</h3></div>
     </div>
 </section>
-
-<!-- FOOTER -->
-<footer class="footer">
-    © Klasse 10C – Tokyo Neon Minigolf
-</footer>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -132,23 +82,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateBtn = document.getElementById('updateBtn');
     const addPlayerBtn = document.getElementById('addPlayerBtn');
 
-    document.addEventListener('focusin', e => {
+    // 0 löschen beim Anklicken
+    document.addEventListener('focusin', function(e){
         if(e.target.classList.contains('score-input') && e.target.value === "0"){
             e.target.value = "";
         }
     });
 
-    document.addEventListener('focusout', e => {
+    // 0 wieder einsetzen wenn leer
+    document.addEventListener('focusout', function(e){
         if(e.target.classList.contains('score-input') && e.target.value === ""){
             e.target.value = "0";
         }
     });
 
+    // Update Button
     updateBtn.addEventListener('click', () => {
+
         const rows = Array.from(scoreBody.querySelectorAll('tr'));
 
         rows.forEach(row => {
             let total = 0;
+
             row.querySelectorAll('.score-input').forEach(input => {
                 let val = parseInt(input.value);
                 if(isNaN(val) || val < 0) val = 0;
@@ -156,26 +111,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 input.value = val;
                 total += val;
             });
+
             row.querySelector('.total').textContent = total;
         });
 
-        rows.sort((a,b) =>
-            parseInt(a.querySelector('.total').textContent) -
-            parseInt(b.querySelector('.total').textContent)
-        );
+        // Sortieren
+        rows.sort((a, b) => {
+            return parseInt(a.querySelector('.total').textContent) -
+                   parseInt(b.querySelector('.total').textContent);
+        });
 
         rows.forEach(row => scoreBody.appendChild(row));
     });
 
+    // Spieler hinzufügen
     addPlayerBtn.addEventListener('click', () => {
+
         const num = scoreBody.children.length + 1;
-        const row = document.createElement('tr');
-        row.innerHTML = `
+        const newRow = document.createElement('tr');
+
+        newRow.innerHTML = `
             <td>Spieler ${num}</td>
             <td class="total">0</td>
-            ${'<td><input type="number" min="0" max="6" value="0" class="score-input"></td>'.repeat(6)}
+            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
+            <td><input type="number" min="0" max="6" value="0" class="score-input"></td>
         `;
-        scoreBody.appendChild(row);
+
+        scoreBody.appendChild(newRow);
     });
 
 });
