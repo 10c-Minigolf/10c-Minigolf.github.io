@@ -81,6 +81,8 @@
                 </tr>
             </thead>
             <tbody id="scoreBody">
+
+                <!-- Spieler 1 -->
                 <tr>
                     <td>Spieler 1</td>
                     <td class="total">0</td>
@@ -91,6 +93,8 @@
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
                 </tr>
+
+                <!-- Spieler 2 -->
                 <tr>
                     <td>Spieler 2</td>
                     <td class="total">0</td>
@@ -101,6 +105,8 @@
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
                 </tr>
+
+                <!-- Spieler 3 -->
                 <tr>
                     <td>Spieler 3</td>
                     <td class="total">0</td>
@@ -111,6 +117,8 @@
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
                 </tr>
+
+                <!-- Spieler 4 -->
                 <tr>
                     <td>Spieler 4</td>
                     <td class="total">0</td>
@@ -121,8 +129,10 @@
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
                 </tr>
+
             </tbody>
         </table>
+
         <br>
         <button id="addPlayerBtn">Spieler hinzufügen</button>
         <button id="updateBtn">Update</button>
@@ -132,42 +142,14 @@
 <section id="halloffame" class="section">
     <h2>🏆 Hall of Fame 🏆</h2>
     <div class="hof-grid">
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 1</h3>
-            <p><strong>Jahr:</strong> 2026</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 2</h3>
-            <p><strong>Jahr:</strong> noch offen</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 3</h3>
-            <p><strong>Jahr:</strong> noch offen</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 4</h3>
-            <p><strong>Jahr:</strong> noch offen</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 5</h3>
-            <p><strong>Jahr:</strong> noch offen</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
-        <div class="hof-card">
-            <div class="hof-img">Foto</div>
-            <h3>Gewinner 6</h3>
-            <p><strong>Jahr:</strong> noch offen</p>
-            <p><strong>Schläge:</strong> noch offen</p>
-        </div>
+
+        <div class="hof-card"><div class="hof-img">Foto</div><h3>Gewinner 1</h3><p><strong>Jahr:</strong> 2026</p><p><strong>Schläge:</strong> noch offen</p></div>
+        <div class="hof-card"><div class="hof-img">Foto</div><h3>Gewinner 2</h3><p><strong>Jahr:</strong> noch offen</p><p><strong>Schläge:</strong> noch offen</p></div>
+        <div class="hof-card"><div class="hof-img">Foto</div><h3>Gewinner 3</h3><p><strong>Jahr:</strong> noch offen</p><p><strong>Schläge:</strong> noch offen</p></div>
+        <div class="hof-card"><div class="hof-img">Foto</div><h3>Gewinner 4</h3><p><strong>Jahr:</strong> noch offen</p><p><strong>Schläge:</strong> noch offen</p></div>
+        <div class="hof-card"><div class="hof-img">Foto</div><h3>Gewinner 5</h3><p><strong>Jahr:</strong> noch offen</p><p><strong>Schläge:</strong> noch offen</p></div>
+        <div class="hof-card"><div class="hof-img">Foto</div><h3>Gewinner 6</h3><p><strong>Jahr:</strong> noch offen</p><p><strong>Schläge:</strong> noch offen</p></div>
+
     </div>
 </section>
 
@@ -175,6 +157,51 @@
     <p>© 2025/26 – Klasse 10C</p>
 </footer>
 
-<script src="10c-minigolf.js"></script>
+<!-- FUNKTIONIERENDES JAVASCRIPT -->
+<script>
+const scoreBody = document.getElementById("scoreBody");
+const addPlayerBtn = document.getElementById("addPlayerBtn");
+const updateBtn = document.getElementById("updateBtn");
+
+function updateScores() {
+    const rows = scoreBody.querySelectorAll("tr");
+
+    rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        let total = 0;
+
+        for (let i = 2; i < cells.length; i++) {
+            let value = parseInt(cells[i].innerText);
+            if (!isNaN(value)) {
+                total += value;
+            }
+        }
+
+        row.querySelector(".total").innerText = total;
+    });
+}
+
+addPlayerBtn.addEventListener("click", function () {
+    const rowCount = scoreBody.querySelectorAll("tr").length + 1;
+
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+        <td>Spieler ${rowCount}</td>
+        <td class="total">0</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">0</td>
+    `;
+
+    scoreBody.appendChild(newRow);
+});
+
+updateBtn.addEventListener("click", updateScores);
+scoreBody.addEventListener("input", updateScores);
+</script>
+
 </body>
 </html>
