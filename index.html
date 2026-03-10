@@ -167,7 +167,7 @@ function updateScores() {
 
         for (let i = 2; i < cells.length; i++) {
 
-            let text = cells[i].textContent.trim();
+            let text = cells[i].innerText.trim();
             let value = parseInt(text);
 
             if (!isNaN(value)) {
@@ -175,7 +175,7 @@ function updateScores() {
             }
         }
 
-        row.querySelector(".total").textContent = total;
+        row.querySelector(".total").innerText = total;
     });
 }
 
@@ -202,4 +202,5 @@ scoreBody.addEventListener("input", updateScores);
 </script>
 
 </body>
+</html>
 </html>
