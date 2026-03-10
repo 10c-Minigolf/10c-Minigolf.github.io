@@ -167,7 +167,7 @@ function updateScores() {
 
         for (let i = 2; i < cells.length; i++) {
 
-            let text = cells[i].innerText.trim();   // FIX
+            let text = cells[i].textContent.trim();
             let value = parseInt(text);
 
             if (!isNaN(value)) {
@@ -175,7 +175,7 @@ function updateScores() {
             }
         }
 
-        row.querySelector(".total").innerText = total;
+        row.querySelector(".total").textContent = total;
     });
 }
 
