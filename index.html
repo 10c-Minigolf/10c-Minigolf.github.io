@@ -82,7 +82,6 @@
             </thead>
             <tbody id="scoreBody">
 
-                <!-- Spieler 1 -->
                 <tr>
                     <td>Spieler 1</td>
                     <td class="total">0</td>
@@ -94,7 +93,6 @@
                     <td contenteditable="true">0</td>
                 </tr>
 
-                <!-- Spieler 2 -->
                 <tr>
                     <td>Spieler 2</td>
                     <td class="total">0</td>
@@ -106,7 +104,6 @@
                     <td contenteditable="true">0</td>
                 </tr>
 
-                <!-- Spieler 3 -->
                 <tr>
                     <td>Spieler 3</td>
                     <td class="total">0</td>
@@ -118,7 +115,6 @@
                     <td contenteditable="true">0</td>
                 </tr>
 
-                <!-- Spieler 4 -->
                 <tr>
                     <td>Spieler 4</td>
                     <td class="total">0</td>
@@ -157,7 +153,6 @@
     <p>© 2025/26 – Klasse 10C</p>
 </footer>
 
-<!-- FUNKTIONIERENDES JAVASCRIPT -->
 <script>
 const scoreBody = document.getElementById("scoreBody");
 const addPlayerBtn = document.getElementById("addPlayerBtn");
@@ -171,7 +166,10 @@ function updateScores() {
         let total = 0;
 
         for (let i = 2; i < cells.length; i++) {
-            let value = parseInt(cells[i].innerText);
+
+            let text = cells[i].innerText.trim();   // FIX
+            let value = parseInt(text);
+
             if (!isNaN(value)) {
                 total += value;
             }
