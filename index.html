@@ -143,7 +143,6 @@ eigene Schwarzlicht-Minigolfbahn entstanden.
 
         <br>
         <button id="addPlayerBtn">Spieler hinzufügen</button>
-        <button id="updateBtn">Update</button>
     </div>
 </section>
 
@@ -168,27 +167,31 @@ eigene Schwarzlicht-Minigolfbahn entstanden.
 <script>
 const scoreBody = document.getElementById("scoreBody");
 const addPlayerBtn = document.getElementById("addPlayerBtn");
-const updateBtn = document.getElementById("updateBtn");
 
 function updateScores() {
-    const rows = scoreBody.querySelectorAll("tr");
+    const rows = Array.from(scoreBody.querySelectorAll("tr"));
 
     rows.forEach(row => {
         const cells = row.querySelectorAll("td");
         let total = 0;
 
         for (let i = 2; i < cells.length; i++) {
-
-            let text = cells[i].innerText.trim();
-            let value = parseInt(text);
-
-            if (!isNaN(value)) {
-                total += value;
-            }
+            let value = parseInt(cells[i].innerText.trim()) || 0;
+            total += value;
         }
 
         row.querySelector(".total").innerText = total;
     });
+
+    // 🔥 Sortieren (kleinste Zahl oben)
+    rows.sort((a, b) => {
+        const totalA = parseInt(a.querySelector(".total").innerText);
+        const totalB = parseInt(b.querySelector(".total").innerText);
+        return totalA - totalB;
+    });
+
+    // 🔁 Tabelle neu aufbauen
+    rows.forEach(row => scoreBody.appendChild(row));
 }
 
 addPlayerBtn.addEventListener("click", function () {
@@ -209,7 +212,6 @@ addPlayerBtn.addEventListener("click", function () {
     scoreBody.appendChild(newRow);
 });
 
-updateBtn.addEventListener("click", updateScores);
 scoreBody.addEventListener("input", updateScores);
 </script>
 
