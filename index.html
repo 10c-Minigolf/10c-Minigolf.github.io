@@ -103,6 +103,7 @@ eigene Schwarzlicht-Minigolfbahn entstanden.
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
+                    <td><button class="removeBtn">❌</button></td>
                 </tr>
 
                 <tr>
@@ -114,6 +115,7 @@ eigene Schwarzlicht-Minigolfbahn entstanden.
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
+                    <td><button class="removeBtn">❌</button></td>
                 </tr>
 
                 <tr>
@@ -125,6 +127,7 @@ eigene Schwarzlicht-Minigolfbahn entstanden.
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
+                    <td><button class="removeBtn">❌</button></td>
                 </tr>
 
                 <tr>
@@ -136,6 +139,7 @@ eigene Schwarzlicht-Minigolfbahn entstanden.
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
                     <td contenteditable="true">0</td>
+                    <td><button class="removeBtn">❌</button></td>
                 </tr>
 
             </tbody>
@@ -210,6 +214,13 @@ addPlayerBtn.addEventListener("click", function () {
     `;
 
     scoreBody.appendChild(newRow);
+});
+    scoreBody.addEventListener("click", function (e) {
+    if (e.target.classList.contains("removeBtn")) {
+        const row = e.target.closest("tr");
+        row.remove();
+        updateScores();
+    }
 });
 
 scoreBody.addEventListener("blur", updateScores, true);
