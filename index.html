@@ -212,7 +212,7 @@ addPlayerBtn.addEventListener("click", function () {
     scoreBody.appendChild(newRow);
 });
 
-scoreBody.addEventListener("input", updateScores);
+scoreBody.addEventListener("blur", updateScores, true);
 </script>
 
 </body>
