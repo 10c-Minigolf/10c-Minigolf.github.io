@@ -236,6 +236,18 @@ body {
     transition: 0.3s;
     margin-right: 10px;
 }
+.removeBtn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.removeBtn:hover {
+    background: darkred;
+}
 
 #updateBtn:hover, #addPlayerBtn:hover {
     background: var(--neon-blue);
