@@ -139,14 +139,18 @@ body {
     gap: 20px;
 }
 
-.img-placeholder {
-    background: rgba(255,255,255,0.1);
-    border: 2px dashed var(--neon-blue);
-    color: var(--neon-blue);
-    padding: 80px 0;
-    text-align: center;
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--neon-blue);
     border-radius: 10px;
-    font-weight: bold;
+    box-shadow: 0 0 20px var(--neon-blue);
+    transition: 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--neon-pink);
 }
 
 /* ---------------- HALL OF FAME ---------------- */
